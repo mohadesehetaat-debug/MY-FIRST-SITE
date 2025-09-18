@@ -68,6 +68,7 @@
     }
     .hero-img img {
       max-width: 300px;
+      border-radius: 10px;
     }
     .services {
       display: flex;
@@ -133,6 +134,40 @@
     .cta a:hover {
       background-color: #4a148c;
     }
+    .service-detail {
+      padding: 60px 20px;
+    }
+    .service-detail:nth-child(even) {
+      background-color: #f9f6ff;
+    }
+    .service-detail h2 {
+      color: #6a1b9a;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .service-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+    .service-content img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    .service-content div {
+      max-width: 500px;
+    }
+    .service-content p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .service-content ul {
+      color: #6a1b9a;
+      line-height: 1.8;
+    }
     footer {
       background-color: #6a1b9a;
       color: white;
@@ -174,23 +209,23 @@
 <section class="services">
   <div class="service-box">
     <i class="fas fa-laptop-code"></i>
-    <h3>طراحی سایت و برندینگ واکنش‌گرا</h3>
-    <a href="services.html">مشاهده خدمات</a>
+    <h3>طراحی سایت و برندینگ</h3>
+    <a href="#web-design">مشاهده توضیحات</a>
   </div>
   <div class="service-box">
     <i class="fas fa-code"></i>
-    <h3>کدنویسی HTML, CSS, JS, PHP</h3>
-    <a href="services.html">جزئیات بیشتر</a>
+    <h3>کدنویسی تخصصی</h3>
+    <a href="#coding">مشاهده توضیحات</a>
   </div>
   <div class="service-box">
     <i class="fas fa-video"></i>
-    <h3>تولید محتوای بصری و متنی</h3>
-    <a href="services.html">نمونه‌ها</a>
+    <h3>تولید محتوا</h3>
+    <a href="#content">مشاهده توضیحات</a>
   </div>
   <div class="service-box">
     <i class="fas fa-microchip"></i>
-    <h3>اتوماسیون صنعتی و زیمنس</h3>
-    <a href="services.html">اطلاعات فنی</a>
+    <h3>اتوماسیون صنعتی</h3>
+    <a href="#automation">مشاهده توضیحات</a>
   </div>
 </section>
 
@@ -200,9 +235,12 @@
   <a href="contact.html">درخواست مشاوره رایگان</a>
 </section>
 
-<footer>
-  <p>© 2025 دفتر خدمات فنی و مهندسی صوفی</p>
-</footer>
-
-</body>
-</html>
+<section id="web-design" class="service-detail">
+  <h2>طراحی سایت و برندینگ</h2>
+  <div class="service-content">
+    <img src="images/web-design.jpg" alt="طراحی سایت">
+    <div>
+      <p>ما سایت‌هایی طراحی می‌کنیم که هم زیبا هستند و هم کاربردی. از طراحی واکنش‌گرا تا انتخاب رنگ‌های برند، تجربه کاربر و سئو را در اولویت قرار می‌دهیم.</p>
+      <ul>
+        <li>✔ طراحی اختصاصی با تم بنفش</li>
+        <li>✔ سرعت بالا و امنیت مناسب</li>
