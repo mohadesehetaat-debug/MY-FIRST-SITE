@@ -3,45 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>خدمات مهندسی محادثه</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <title>دفتر خدمات فنی و مهندسی صوفی</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: 'Vazirmatn', sans-serif;
       margin: 0;
-      background-color: #f5f0fa;
+      background-color: #ffffff;
       color: #333;
+      direction: rtl;
     }
     header {
-      background-color: #6a1b9a;
+      background: linear-gradient(to left, #6a1b9a, #8e24aa);
       color: white;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
     }
     nav {
-      background-color: #8e24aa;
+      background-color: #6a1b9a;
       display: flex;
       justify-content: center;
-      gap: 20px;
-      padding: 10px;
+      gap: 30px;
+      padding: 15px;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      font-size: 16px;
     }
     .hero {
-      background: linear-gradient(to right, #ba68c8, #ce93d8);
-      padding: 60px 20px;
-      text-align: center;
-      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 30px;
+      background-color: #f3f0fa;
     }
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
     }
-    .hero p {
+    .hero-text h1 {
+      color: #6a1b9a;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .hero-text p {
       font-size: 18px;
+      color: #555;
+    }
+    .hero-img {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }
+    .hero-img img {
+      max-width: 300px;
     }
     .services {
       display: flex;
@@ -52,11 +71,33 @@
     }
     .service-box {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(106, 27, 154, 0.2);
-      padding: 20px;
-      width: 250px;
+      border: 2px solid #e0d7f3;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(106, 27, 154, 0.1);
+      padding: 25px;
+      width: 220px;
       text-align: center;
+      transition: transform 0.3s;
+    }
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
+    .service-box i {
+      font-size: 36px;
+      color: #6a1b9a;
+      margin-bottom: 10px;
+    }
+    .service-box h3 {
+      font-size: 18px;
+      color: #6a1b9a;
+      margin-bottom: 10px;
+    }
+    .service-box a {
+      text-decoration: none;
+      color: #6a1b9a;
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
     }
     footer {
       background-color: #6a1b9a;
@@ -70,7 +111,7 @@
 <body>
 
 <header>
-  <h2>دفتر خدمات مهندسی محادثه</h2>
+  <h2>دفتر خدمات فنی و مهندسی صوفی</h2>
 </header>
 
 <nav>
@@ -81,27 +122,40 @@
 </nav>
 
 <section class="hero">
-  <h1>خدمات تخصصی برق، آموزش و دیجیتال مارکتینگ</h1>
-  <p>با تیمی حرفه‌ای و خلاق، آماده ارائه خدمات مهندسی، طراحی سایت، آموزش و مشاوره هستیم.</p>
+  <div class="hero-text">
+    <h1>خلق و توسعه دیجیتال نوآورانه</h1>
+    <p>کشف قدرت آموزش، طراحی سایت و اتوماسیون صنعتی با تخصص ما. ما منحصر به فرد، خلاق و پیشگامانه عمل می‌کنیم.</p>
+  </div>
+  <div class="hero-img">
+    <img src="https://via.placeholder.com/300x300?text=Coding+Illustration" alt="تصویر برنامه‌نویسی">
+  </div>
 </section>
 
 <section class="services">
   <div class="service-box">
-    <h3>نصب و راه‌اندازی برق صنعتی</h3>
-    <p>طراحی و اجرای پروژه‌های برق با استانداردهای روز.</p>
+    <i class="fas fa-laptop-code"></i>
+    <h3>طراحی سایت و برندینگ واکنش‌گرا</h3>
+    <a href="services.html">مشاهده خدمات</a>
   </div>
   <div class="service-box">
-    <h3>آموزش تخصصی</h3>
-    <p>برگزاری دوره‌های عملی و آنلاین در حوزه برق و دیجیتال.</p>
+    <i class="fas fa-code"></i>
+    <h3>کدنویسی HTML, CSS, JS, PHP</h3>
+    <a href="services.html">جزئیات بیشتر</a>
   </div>
   <div class="service-box">
-    <h3>طراحی سایت و برندینگ</h3>
-    <p>ساخت سایت‌های حرفه‌ای با تمرکز بر تجربه کاربر و سئو.</p>
+    <i class="fas fa-video"></i>
+    <h3>تولید محتوای بصری و متنی</h3>
+    <a href="services.html">نمونه‌ها</a>
+  </div>
+  <div class="service-box">
+    <i class="fas fa-microchip"></i>
+    <h3>اتوماسیون صنعتی و زیمنس</h3>
+    <a href="services.html">اطلاعات فنی</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 دفتر خدمات مهندسی محادثه</p>
+  <p>© 2025 دفتر خدمات فنی و مهندسی صوفی</p>
 </footer>
 
 </body>
