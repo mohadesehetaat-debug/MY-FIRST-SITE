@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>دفتر خدمات فنی و مهندسی صوفی</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Vazirmatn', sans-serif;
       margin: 0;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #333;
       direction: rtl;
     }
@@ -34,41 +35,22 @@
       font-size: 16px;
     }
     .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
       padding: 50px 30px;
       background-color: #f3f0fa;
-    }
-    .hero-text {
-      flex: 1;
-      min-width: 280px;
-    }
-    .hero-text h1 {
-      color: #6a1b9a;
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-    .hero-text p {
-      font-size: 18px;
-      color: #555;
-    }
-    .hero-text ul {
-      margin-top: 20px;
-      padding-right: 20px;
-      color: #6a1b9a;
-      font-weight: bold;
-      line-height: 1.8;
-    }
-    .hero-img {
-      flex: 1;
-      min-width: 280px;
       text-align: center;
     }
-    .hero-img img {
-      max-width: 300px;
-      border-radius: 10px;
+    .hero h1 {
+      color: #6a1b9a;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 18px;
+      font-weight: 400;
+      color: #555;
+      max-width: 700px;
+      margin: auto;
     }
     .services {
       display: flex;
@@ -76,6 +58,7 @@
       justify-content: center;
       gap: 30px;
       padding: 40px 20px;
+      background-color: #f9f6ff;
     }
     .service-box {
       background-color: white;
@@ -85,10 +68,11 @@
       padding: 25px;
       width: 220px;
       text-align: center;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .service-box:hover {
       transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(106, 27, 154, 0.3);
     }
     .service-box i {
       font-size: 36px;
@@ -97,76 +81,55 @@
     }
     .service-box h3 {
       font-size: 18px;
+      font-weight: 600;
       color: #6a1b9a;
       margin-bottom: 10px;
     }
     .service-box a {
       text-decoration: none;
-      color: #6a1b9a;
+      color: #ab47bc;
       font-weight: bold;
       display: block;
       margin-top: 10px;
     }
-    .cta {
-      background-color: #e8e0f5;
-      padding: 40px;
-      text-align: center;
-    }
-    .cta h2 {
-      color: #6a1b9a;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-    .cta p {
-      font-size: 16px;
-      color: #444;
-      margin-bottom: 20px;
-    }
-    .cta a {
-      background-color: #6a1b9a;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .cta a:hover {
-      background-color: #4a148c;
-    }
-    .service-detail {
+    .detail-section {
       padding: 60px 20px;
     }
-    .service-detail:nth-child(even) {
-      background-color: #f9f6ff;
+    .detail-section:nth-child(even) .detail-content {
+      flex-direction: row-reverse;
     }
-    .service-detail h2 {
+    .detail-section h2 {
       color: #6a1b9a;
       text-align: center;
+      font-size: 24px;
+      font-weight: 700;
       margin-bottom: 30px;
     }
-    .service-content {
+    .detail-content {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: center;
       gap: 30px;
+      align-items: center;
     }
-    .service-content img {
+    .detail-content img {
       max-width: 300px;
       border-radius: 10px;
     }
-    .service-content div {
+    .detail-content div {
       max-width: 500px;
     }
-    .service-content p {
+    .detail-content p {
       font-size: 16px;
+      font-weight: 400;
       color: #444;
       margin-bottom: 10px;
     }
-    .service-content ul {
+    .detail-content ul {
       color: #6a1b9a;
+      font-weight: 500;
       line-height: 1.8;
+      padding-right: 20px;
     }
     footer {
       background-color: #6a1b9a;
@@ -184,38 +147,27 @@
 </header>
 
 <nav>
-  <a href="index.html">خانه</a>
-  <a href="services.html">خدمات</a>
-  <a href="team.html">تیم ما</a>
-  <a href="contact.html">تماس با ما</a>
+  <a href="#web">طراحی سایت</a>
+  <a href="#code">کدنویسی</a>
+  <a href="#content">تولید محتوا</a>
+  <a href="#automation">اتوماسیون صنعتی</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>خلق و توسعه دیجیتال نوآورانه</h1>
-    <p>ما در دفتر خدمات فنی و مهندسی صوفی، ترکیبی از تخصص مهندسی، طراحی سایت، تولید محتوا و اتوماسیون صنعتی را برای رشد کسب‌وکار شما ارائه می‌دهیم.</p>
-    <ul>
-      <li>✔ طراحی سایت‌های واکنش‌گرا و سئو محور</li>
-      <li>✔ تولید محتوای متنی، تصویری و ویدیویی</li>
-      <li>✔ برنامه‌نویسی اتوماسیون صنعتی با زیمنس و PLC</li>
-      <li>✔ آموزش تخصصی HTML, CSS, JS, PHP</li>
-    </ul>
-  </div>
-  <div class="hero-img">
-    <img src="images/hero.png" alt="تصویر برنامه‌نویسی">
-  </div>
+  <h1>خلق و توسعه دیجیتال نوآورانه</h1>
+  <p>ما در دفتر خدمات فنی و مهندسی صوفی، ترکیبی از تخصص مهندسی، طراحی سایت، تولید محتوا و اتوماسیون صنعتی را برای رشد کسب‌وکار شما ارائه می‌دهیم.</p>
 </section>
 
 <section class="services">
   <div class="service-box">
     <i class="fas fa-laptop-code"></i>
-    <h3>طراحی سایت و برندینگ</h3>
-    <a href="#web-design">مشاهده توضیحات</a>
+    <h3>طراحی سایت</h3>
+    <a href="#web">مشاهده توضیحات</a>
   </div>
   <div class="service-box">
     <i class="fas fa-code"></i>
-    <h3>کدنویسی تخصصی</h3>
-    <a href="#coding">مشاهده توضیحات</a>
+    <h3>کدنویسی</h3>
+    <a href="#code">مشاهده توضیحات</a>
   </div>
   <div class="service-box">
     <i class="fas fa-video"></i>
@@ -229,18 +181,56 @@
   </div>
 </section>
 
-<section class="cta">
-  <h2>چرا دفتر صوفی؟</h2>
-  <p>ما با تلفیق دانش فنی و خلاقیت بصری، پروژه‌هایی می‌سازیم که هم زیبا هستند و هم کاربردی. مشتریان ما تجربه‌ای متفاوت از خدمات دیجیتال خواهند داشت.</p>
-  <a href="contact.html">درخواست مشاوره رایگان</a>
+<section id="web" class="detail-section">
+  <h2>طراحی سایت و برندینگ</h2>
+  <div class="detail-content">
+    <img src="images/web.jpg" alt="طراحی سایت">
+    <div>
+      <p>طراحی سایت‌های واکنش‌گرا، زیبا و سئو محور با تمرکز بر تجربه کاربر و هویت بصری برند شما.</p>
+      <ul>
+        <li>✔ طراحی اختصاصی با رنگ‌های برند</li>
+        <li>✔ اتصال به دامنه شخصی و GitHub Pages</li>
+        <li>✔ سرعت بالا و امنیت مناسب</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section id="web-design" class="service-detail">
-  <h2>طراحی سایت و برندینگ</h2>
-  <div class="service-content">
-    <img src="images/web-design.jpg" alt="طراحی سایت">
+<section id="code" class="detail-section">
+  <h2>کدنویسی تخصصی</h2>
+  <div class="detail-content">
+    <img src="images/code.jpg" alt="کدنویسی">
     <div>
-      <p>ما سایت‌هایی طراحی می‌کنیم که هم زیبا هستند و هم کاربردی. از طراحی واکنش‌گرا تا انتخاب رنگ‌های برند، تجربه کاربر و سئو را در اولویت قرار می‌دهیم.</p>
+      <p>توسعه صفحات پویا با HTML, CSS, JS و PHP برای پروژه‌های حرفه‌ای و قابل توسعه.</p>
       <ul>
-        <li>✔ طراحی اختصاصی با تم بنفش</li>
-        <li>✔ سرعت بالا و امنیت مناسب</li>
+        <li>✔ طراحی فرم‌ها، اسلایدرها و صفحات تعاملی</li>
+        <li>✔ اتصال به پایگاه داده و مدیریت محتوا</li>
+        <li>✔ آموزش و مستندسازی برای تیم شما</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="content" class="detail-section">
+  <h2>تولید محتوا</h2>
+  <div class="detail-content">
+    <img src="images/content.jpg" alt="تولید محتوا">
+    <div>
+      <p>تولید محتوای متنی، تصویری و ویدیویی برای شبکه‌های اجتماعی، سایت و تبلیغات.</p>
+      <ul>
+        <li>✔ طراحی گرافیکی با Canva و فتوشاپ</li>
+        <li>✔ تولید ویدیوهای آموزشی و تبلیغاتی</li>
+        <li>✔ نگارش متن‌های حرفه‌ای و سئو شده</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="automation" class="detail-section">
+  <h2>اتوماسیون صنعتی</h2>
+  <div class="detail-content">
+    <img src="images/automation.jpg" alt="اتوماسیون صنعتی">
+    <div>
+      <p>برنامه‌نویسی PLC، طراحی تابلو برق و اجرای پروژه‌های اتوماسیون صنعتی با تجهیزات زیمنس و کنترل هوشمند.</p>
+      <ul>
+        <
