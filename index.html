@@ -2,252 +2,118 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>دفتر خدمات فنی و مهندسی صوفی</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>نقشه شبکه پارک نهج‌البلاغه</title>
   <style>
-    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Vazirmatn', sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: #333;
+      font-family: 'Vazir', sans-serif;
+      background-color: #f4f6f8;
       direction: rtl;
+      margin: 0;
+      padding: 0;
     }
-    header {
-      background: linear-gradient(to left, #6a1b9a, #8e24aa);
-      color: white;
-      padding: 30px;
+
+    h1 {
       text-align: center;
+      color: #005b96;
+      margin: 20px 0;
     }
-    nav {
-      background-color: #6a1b9a;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    .hero {
-      padding: 50px 30px;
-      background-color: #f3f0fa;
-      text-align: center;
-    }
-    .hero h1 {
-      color: #6a1b9a;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 18px;
-      font-weight: 400;
-      color: #555;
-      max-width: 700px;
-      margin: auto;
-    }
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 40px 20px;
-      background-color: #f9f6ff;
-    }
-    .service-box {
-      background-color: white;
-      border: 2px solid #e0d7f3;
+
+    .map {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 700px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(106, 27, 154, 0.1);
-      padding: 25px;
-      width: 220px;
+      overflow: hidden;
+    }
+
+    .node {
+      position: absolute;
+      width: 140px;
+      padding: 10px;
+      border-radius: 8px;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .service-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(106, 27, 154, 0.3);
-    }
-    .service-box i {
-      font-size: 36px;
-      color: #6a1b9a;
-      margin-bottom: 10px;
-    }
-    .service-box h3 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #6a1b9a;
-      margin-bottom: 10px;
-    }
-    .service-box a {
-      text-decoration: none;
-      color: #ab47bc;
       font-weight: bold;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+
+    .node .icon {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .ap { border-color: #339af0; background-color: #e7f3ff; }
+    .tower { border-color: #6c757d; background-color: #f1f1f1; }
+    .antenna { border-color: #ffc107; background-color: #fff8e1; }
+
+    /* موقعیت‌ها دستی چیده شده */
+    #AP1GM { bottom: 40px; left: 60px; }
+    #AP3GMT { top: 40px; right: 60px; }
+    #AP4HTO { top: 140px; right: 180px; }
+    #AP3H { bottom: 40px; right: 260px; }
+    #AP5HO { top: 220px; right: 180px; }
+    #AP6HO1 { bottom: 140px; right: 60px; }
+    #AP7ZE { bottom: 240px; right: 100px; }
+
+    .info-box {
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 13px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 10;
+      width: 200px;
+    }
+
+    .info-box a {
       display: block;
-      margin-top: 10px;
-    }
-    .detail-section {
-      padding: 60px 20px;
-    }
-    .detail-section:nth-child(even) .detail-content {
-      flex-direction: row-reverse;
-    }
-    .detail-section h2 {
-      color: #6a1b9a;
-      text-align: center;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 30px;
-    }
-    .detail-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      align-items: center;
-    }
-    .detail-content img {
-      max-width: 300px;
-      border-radius: 10px;
-    }
-    .detail-content div {
-      max-width: 500px;
-    }
-    .detail-content p {
-      font-size: 16px;
-      font-weight: 400;
-      color: #444;
-      margin-bottom: 10px;
-    }
-    .detail-content ul {
-      color: #6a1b9a;
-      font-weight: 500;
-      line-height: 1.8;
-      padding-right: 20px;
-    }
-    footer {
-      background-color: #6a1b9a;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    footer h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    footer p {
-      font-size: 15px;
-      margin: 5px 0;
-    }
-    footer a {
-      color: #ce93d8;
+      margin-top: 8px;
+      color: #007bff;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
+  <h1>📡 نقشه شبکه پارک نهج‌البلاغه - فاز ۱</h1>
+  <div class="map" onclick="hideInfo()">
+    <!-- پایگاه‌ها -->
+    <div class="node ap" id="AP1GM" onclick="showInfo(event, 'AP1GM', 'کانکس شهرداری', 'رادیو امنی، ارسال به همیلا ۱', 'https://maps.google.com/?q=35.7295,51.3120')"><div class="icon">🏠</div>AP1GM</div>
+    <div class="node tower" id="AP3GMT" onclick="showInfo(event, 'AP3GMT', 'دکل همیلا ۱', 'دریافت از کانکس، ارسال به ایوانک و همیلا ۳', 'https://maps.google.com/?q=35.7312,51.3145')"><div class="icon">📡</div>AP3GMT</div>
+    <div class="node antenna" id="AP4HTO" onclick="showInfo(event, 'AP4HTO', 'آنتن PTP', 'ارسال به ایوانک', 'https://maps.google.com/?q=35.7300,51.3130')"><div class="icon">📶</div>AP4HTO</div>
+    <div class="node tower" id="AP3H" onclick="showInfo(event, 'AP3H', 'دکل ایوانک', 'دریافت از AP4HTO', 'https://maps.google.com/?q=35.7280,51.3110')"><div class="icon">📡</div>AP3H</div>
+    <div class="node antenna" id="AP5HO" onclick="showInfo(event, 'AP5HO', 'آنتن PTP', 'ارسال به همیلا ۳', 'https://maps.google.com/?q=35.7305,51.3135')"><div class="icon">📶</div>AP5HO</div>
+    <div class="node tower" id="AP6HO1" onclick="showInfo(event, 'AP6HO1', 'دکل همیلا ۳', 'دریافت از AP5HO، ارسال به همیلا ۲', 'https://maps.google.com/?q=35.7275,51.3140')"><div class="icon">📡</div>AP6HO1</div>
+    <div class="node tower" id="AP7ZE" onclick="showInfo(event, 'AP7ZE', 'دکل همیلا ۲', 'دریافت از همیلا ۳', 'https://maps.google.com/?q=35.7265,51.3145')"><div class="icon">📡</div>AP7ZE</div>
 
-<header>
-  <h2>دفتر خدمات فنی و مهندسی صوفی</h2>
-</header>
-<nav>
-  <a href="index.html">خانه</a>
-  <a href="services.html">خدمات</a>
-  <a href="team.html">تیم ما</a>
-  <a href="contact.html">تماس با ما</a>
-</nav>
+    <!-- پنجره اطلاعات -->
+    <div id="info" class="info-box"></div>
+  </div>
 
-<section class="hero">
-  <h1>خلق و توسعه دیجیتال نوآورانه</h1>
-  <p>ما در دفتر خدمات فنی و مهندسی صوفی، ترکیبی از تخصص مهندسی، طراحی سایت، تولید محتوا و اتوماسیون صنعتی را برای رشد کسب‌وکار شما ارائه می‌دهیم.</p>
-</section>
+  <script>
+    function showInfo(event, id, title, detail, mapLink) {
+      event.stopPropagation();
+      const info = document.getElementById("info");
+      info.innerHTML = <strong>${title}</strong><br>${detail}<a href="${mapLink}" target="_blank">📍 مشاهده در Google Maps</a>;
+      info.style.left = event.pageX + "px";
+      info.style.top = event.pageY + "px";
+      info.style.display = "block";
+    }
 
-<section class="services">
-  <div class="service-box">
-    <i class="fas fa-laptop-code"></i>
-    <h3>طراحی سایت</h3>
-    <a href="#web">مشاهده توضیحات</a>
-  </div>
-  <div class="service-box">
-    <i class="fas fa-code"></i>
-    <h3>کدنویسی</h3>
-    <a href="#code">مشاهده توضیحات</a>
-  </div>
-  <div class="service-box">
-    <i class="fas fa-video"></i>
-    <h3>تولید محتوا</h3>
-    <a href="#content">مشاهده توضیحات</a>
-  </div>
-  <div class="service-box">
-    <i class="fas fa-microchip"></i>
-    <h3>اتوماسیون صنعتی</h3>
-    <a href="#automation">مشاهده توضیحات</a>
-  </div>
-</section>
-
-<section id="web" class="detail-section">
-  <h2>طراحی سایت و برندینگ</h2>
-  <div class="detail-content">
-    <img src="images/web.jpg" alt="طراحی سایت">
-    <div>
-      <p>طراحی سایت‌های واکنش‌گرا، زیبا و سئو محور با تمرکز بر تجربه کاربر و هویت بصری برند شما.</p>
-      <ul>
-        <li>✔ طراحی اختصاصی با رنگ‌های برند</li>
-        <li>✔ اتصال به دامنه شخصی و GitHub Pages</li>
-        <li>✔ سرعت بالا و امنیت مناسب</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="code" class="detail-section">
-  <h2>کدنویسی تخصصی</h2>
-  <div class="detail-content">
-    <img src="WhatsApp Image 2025-09-18 at 16.44.01.jpeg" alt="کدنویسی">
-    <div>
-      <p>توسعه صفحات پویا با HTML, CSS, JS و PHP برای پروژه‌های حرفه‌ای و قابل توسعه.</p>
-      <ul>
-        <li>✔ طراحی فرم‌ها، اسلایدرها و صفحات تعاملی</li>
-        <li>✔ اتصال به پایگاه داده و مدیریت محتوا</li>
-        <li>✔ آموزش و مستندسازی برای تیم شما</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="content" class="detail-section">
-  <h2>تولید محتوا</h2>
-  <div class="detail-content">
-    <img src="images/content.jpg" alt="تولید محتوا">
-    <div>
-      <p>تولید محتوای متنی، تصویری و ویدیویی برای شبکه‌های اجتماعی، سایت و تبلیغات.</p>
-      <ul>
-        <li>✔ طراحی گرافیکی با Canva و فتوشاپ</li>
-        <li>✔ تولید ویدیوهای آموزشی و تبلیغاتی</li>
-        <li>✔ نگارش متن‌های حرفه‌ای و سئو شده</li>
-      </ul>
-    </div>
-    <footer style="width: 100%; background-color: #6a1b9a; color: white; padding: 40px 20px; text-align: right;">
-  <div style="max-width: 1000px; margin: auto;">
-    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px;">ارتباط با ما</h3>
-    <p style="font-size: 16px;">📞 تلفن: ۰۹۱۲۱۲۳۴۵۶۷</p>
-    <p style="font-size: 16px;">📧 ایمیل: <a href="mailto:soofi.office@gmail.com" style="color:#ce93d8; text-decoration:none;">soofi.office@gmail.com</a></p>
-    <p style="font-size: 16px;">💬 واتساپ: <a href="https://wa.me/989121234567" style="color:#ce93d8; text-decoration:none;">ارسال پیام در واتساپ</a></p>
-    <p style="font-size: 16px;">📍 آدرس: کرج، ایران</p>
-    <a href="contact.html" style="display:inline-block; margin-top:20px; background:#ab47bc; color:white; padding:10px 20px; border-radius:6px; text-decoration:none;">صفحه تماس با ما</a>
-    <hr style="margin: 30px 0; border: none; border-top: 1px solid #ce93d8;">
-    <p style="text-align: center; font-size: 14px;">© 2025 دفتر خدمات فنی و مهندسی صوفی</p>
-  </div>
-</footer>
-  </div>
-</section>
-
-<section id="automation" class="detail-section
+    function hideInfo() {
+      document.getElementById("info").style.display = "none";
+    }
+  </script>
+</body>
+</html>
