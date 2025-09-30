@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>نقشه شبکه پارک نهج‌البلاغه</title>
+  <title>نقشه تعاملی شبکه - پارک نهج‌البلاغه</title>
   <style>
     body {
       font-family: 'Vazir', sans-serif;
@@ -18,7 +18,7 @@
       margin: 20px 0;
     }
 
-    .map {
+    .map-container {
       position: relative;
       width: 100%;
       max-width: 1000px;
@@ -54,15 +54,16 @@
     .tower { border-color: #6c757d; background-color: #f1f1f1; }
     .antenna { border-color: #ffc107; background-color: #fff8e1; }
 
-    /* موقعیت‌ها دستی چیده شده */
-    #AP1GM { bottom: 40px; left: 60px; }
-    #AP3GMT { top: 40px; right: 60px; }
-    #AP4HTO { top: 140px; right: 180px; }
-    #AP3H { bottom: 40px; right: 260px; }
-    #AP5HO { top: 220px; right: 180px; }
-    #AP6HO1 { bottom: 140px; right: 60px; }
-    #AP7ZE { bottom: 240px; right: 100px; }
+    /* موقعیت‌ها */
+    #AP1GM { bottom: 60px; left: 100px; }
+    #AP3GMT { top: 60px; right: 100px; }
+    #AP4HTO { top: 140px; right: 220px; }
+    #AP3H { bottom: 60px; right: 300px; }
+    #AP5HO { top: 220px; right: 220px; }
+    #AP6HO1 { bottom: 160px; right: 100px; }
+    #AP7ZE { bottom: 240px; right: 140px; }
 
+    /* پنجره اطلاعات */
     .info-box {
       position: absolute;
       background-color: #fff;
@@ -73,39 +74,66 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       display: none;
       z-index: 10;
-      width: 200px;
     }
 
-    .info-box a {
-      display: block;
-      margin-top: 8px;
-      color: #007bff;
-      text-decoration: none;
-      font-size: 13px;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    text {
+      font-family: 'Vazir', sans-serif;
     }
   </style>
 </head>
 <body>
-  <h1>📡 نقشه شبکه پارک نهج‌البلاغه - فاز ۱</h1>
-  <div class="map" onclick="hideInfo()">
+  <h1>📡 نقشه تعاملی شبکه - پارک نهج‌البلاغه</h1>
+  <div class="map-container" onclick="hideInfo()">
     <!-- پایگاه‌ها -->
-    <div class="node ap" id="AP1GM" onclick="showInfo(event, 'AP1GM', 'کانکس شهرداری', 'رادیو امنی، ارسال به همیلا ۱', 'https://maps.google.com/?q=35.7295,51.3120')"><div class="icon">🏠</div>AP1GM</div>
-    <div class="node tower" id="AP3GMT" onclick="showInfo(event, 'AP3GMT', 'دکل همیلا ۱', 'دریافت از کانکس، ارسال به ایوانک و همیلا ۳', 'https://maps.google.com/?q=35.7312,51.3145')"><div class="icon">📡</div>AP3GMT</div>
-    <div class="node antenna" id="AP4HTO" onclick="showInfo(event, 'AP4HTO', 'آنتن PTP', 'ارسال به ایوانک', 'https://maps.google.com/?q=35.7300,51.3130')"><div class="icon">📶</div>AP4HTO</div>
-    <div class="node tower" id="AP3H" onclick="showInfo(event, 'AP3H', 'دکل ایوانک', 'دریافت از AP4HTO', 'https://maps.google.com/?q=35.7280,51.3110')"><div class="icon">📡</div>AP3H</div>
-    <div class="node antenna" id="AP5HO" onclick="showInfo(event, 'AP5HO', 'آنتن PTP', 'ارسال به همیلا ۳', 'https://maps.google.com/?q=35.7305,51.3135')"><div class="icon">📶</div>AP5HO</div>
-    <div class="node tower" id="AP6HO1" onclick="showInfo(event, 'AP6HO1', 'دکل همیلا ۳', 'دریافت از AP5HO، ارسال به همیلا ۲', 'https://maps.google.com/?q=35.7275,51.3140')"><div class="icon">📡</div>AP6HO1</div>
-    <div class="node tower" id="AP7ZE" onclick="showInfo(event, 'AP7ZE', 'دکل همیلا ۲', 'دریافت از همیلا ۳', 'https://maps.google.com/?q=35.7265,51.3145')"><div class="icon">📡</div>AP7ZE</div>
+    <div class="node ap" id="AP1GM" onclick="showInfo(event, 'AP1GM', 'کانکس شهرداری', 'رادیو امنی، ارسال به همیلا ۱')"><div class="icon">🏠</div>AP1GM</div>
+    <div class="node tower" id="AP3GMT" onclick="showInfo(event, 'AP3GMT', 'دکل همیلا ۱', 'دریافت از کانکس، ارسال به ایوانک و همیلا ۳')"><div class="icon">📡</div>AP3GMT</div>
+    <div class="node antenna" id="AP4HTO" onclick="showInfo(event, 'AP4HTO', 'آنتن PTP', 'ارسال به ایوانک')"><div class="icon">📶</div>AP4HTO</div>
+    <div class="node tower" id="AP3H" onclick="showInfo(event, 'AP3H', 'دکل ایوانک', 'دریافت از AP4HTO')"><div class="icon">📡</div>AP3H</div>
+    <div class="node antenna" id="AP5HO" onclick="showInfo(event, 'AP5HO', 'آنتن PTP', 'ارسال به همیلا ۳')"><div class="icon">📶</div>AP5HO</div>
+    <div class="node tower" id="AP6HO1" onclick="showInfo(event, 'AP6HO1', 'دکل همیلا ۳', 'دریافت از AP5HO، ارسال به همیلا ۲')"><div class="icon">📡</div>AP6HO1</div>
+    <div class="node tower" id="AP7ZE" onclick="showInfo(event, 'AP7ZE', 'دکل همیلا ۲', 'دریافت از همیلا ۳')"><div class="icon">📡</div>AP7ZE</div>
+
+    <!-- فلش‌های SVG -->
+    <svg width="1000" height="700">
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#ff5722" />
+        </marker>
+      </defs>
+
+      <!-- فلش ۱: AP1GM → AP3GMT -->
+      <line x1="170" y1="640" x2="900" y2="100" stroke="#ff5722" stroke-width="3" marker-end="url(#arrowhead)" />
+      <text x="500" y="380" fill="#ff5722" font-size="14">Data Flow</text>
+
+      <!-- فلش ۲: AP4HTO → AP3H -->
+      <line x1="880" y1="180" x2="370" y2="640" stroke="#00bcd4" stroke-width="3" marker-end="url(#arrowhead)" />
+      <text x="600" y="400" fill="#00bcd4" font-size="14">Data Flow</text>
+
+      <!-- فلش ۳: AP5HO → AP6HO1 -->
+      <line x1="880" y1="260" x2="170" y2="540" stroke="#4caf50" stroke-width="3" marker-end="url(#arrowhead)" />
+      <text x="500" y="460" fill="#4caf50" font-size="14">Data Flow</text>
+
+      <!-- فلش ۴: AP6HO1 → AP7ZE -->
+      <line x1="170" y1="540" x2="210" y2="460" stroke="#9c27b0" stroke-width="3" marker-end="url(#arrowhead)" />
+      <text x="190" y="500" fill="#9c27b0" font-size="14">Data Flow</text>
+    </svg>
 
     <!-- پنجره اطلاعات -->
     <div id="info" class="info-box"></div>
   </div>
 
   <script>
-    function showInfo(event, id, title, detail, mapLink) {
+    function showInfo(event, id, title, detail) {
       event.stopPropagation();
       const info = document.getElementById("info");
-      info.innerHTML = <strong>${title}</strong><br>${detail}<a href="${mapLink}" target="_blank">📍 مشاهده در Google Maps</a>;
+      info.innerHTML = <strong>${title}</strong><br>${detail};
       info.style.left = event.pageX + "px";
       info.style.top = event.pageY + "px";
       info.style.display = "block";
